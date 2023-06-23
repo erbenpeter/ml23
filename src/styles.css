@@ -1,0 +1,105 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0px;
+}
+
+:root {
+  --clr-titlepurple: #443355;
+  --clr-bglightblack: #333333;
+  --clr-paper: #EEEEEE;
+  --clr-strongergray: #555555;
+  --clr-lightergray: #999999;
+  --clr-themered: #b2102f;
+  --clr-themeblue: #2c387e;
+}
+
+button, select {
+  background-color: var(--clr-paper);
+  border: 1px solid var(--clr-paper);
+  border-radius: 4px;
+  color: var(--clr-bglightblack);
+  cursor: pointer;
+  font-family: arial,sans-serif;
+  font-size: 14px;
+  height: 36px;
+  line-height: 27px;
+  min-width: 64px;
+  padding: 0 16px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: pre;
+}
+
+button:not([disabled]):hover, select:hover {
+  border-color: var(--clr-bglightblack);
+  box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
+  color: var(--clr-bglightblack);
+}
+
+button:disabled {
+  color: var(--clr-lightergray);
+}
+
+h2 {
+  margin: 1em;
+  font-size: 32px;
+  text-align: center;
+}
+
+.page-container {
+  margin-inline: auto;
+  margin-top: 2em;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 1024px;
+}
+
+.controll-section {
+  margin-inline: 1em;
+  border: 1px solid var(--clr-paper);
+  border-radius: 0.5em;
+  width: 330px;
+  margin-bottom: 1em;
+  padding: 0.5em 1em;
+}
+
+.controll-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation {
+  padding: 0.5em 1em;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.loss {
+  height: 1.1em;
+  color: var(--clr-themered);
+  text-align: center;
+  font-size: x-large;
+  font-weight: bolder;
+}
+.actions {
+  text-align: right;
+}
+
+.actions > button {
+  margin-right: 0.5em;
+}
+
+.boundary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--clr-themeblue);
+  font-size: large;
+  font-weight: bolder;
+  min-height: 60px;
+}

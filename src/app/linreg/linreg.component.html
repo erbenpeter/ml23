@@ -1,0 +1,36 @@
+<div class="page-container">
+  <app-canvas #canvas [scale]=300></app-canvas>
+  <div class="controll-panel">
+    <div class="controll-section">
+      <h3>Minta</h3>
+      <p>
+        Zaj:
+        <select [(ngModel)]="noiseType">
+          <option *ngFor="let nt of noiseTypes" [value]="nt.id">{{nt.name}}</option>
+        </select>
+      </p>
+      <p class="actions">
+        <button (click)="sample()">Új minta</button>
+      </p>
+    </div>
+    <div class="controll-section">
+      <h3>Tanítás</h3>
+      <p class="actions">
+        <button (click)="learn()">Egyenes illesztés</button>
+      </p>
+    </div>
+    <div class="controll-section">
+      <h3>Átlagos hiba</h3>
+      <p class="loss">
+        <span *ngIf="avgLoss !== undefined">{{avgLoss.toFixed(4)}}</span>
+      </p>
+    </div>
+    <div class="spacer"></div>
+    <div class="navigation">
+      <p class="actions">
+        <button (click)="router.navigate(['/'])">Vissza a főoldalra</button>
+      </p>
+    </div>
+  </div>
+</div>
+

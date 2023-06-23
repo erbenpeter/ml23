@@ -1,0 +1,48 @@
+<div class="page-container">
+  <app-canvas #canvas [scale]=300></app-canvas>
+  <div class="controll-panel">
+    <div class="controll-section">
+      <h3>Minta</h3>
+      <p class="actions">
+       <button (click)="sample()">Új minta</button>
+      </p>
+    </div>
+    <div class="controll-section">
+      <h3>Tanítás</h3>
+      <p class="actions">
+        <button (click)="start()" [disabled]="startDisabled()">
+          Kezd
+        </button>
+        <button (click)="step()" [disabled]="stepDisabled()">
+          Lép
+        </button>
+        <button (click)="simulationState='running';run()" [disabled]="runDisabled()">
+          <fa-icon [icon]="faPlay"></fa-icon>
+        </button>
+        <button (click)="pause()" [disabled]="pauseDisabled()">
+          <fa-icon [icon]="faPause"></fa-icon>
+        </button>
+      </p>
+    </div>
+    <div class="controll-section">
+      <h3>Tévedések</h3>
+      <p class="loss">
+        {{loss}}
+      </p>
+      <h3>Döntési határ</h3>
+      <div class="boundary">
+        <p *ngIf="!boundaryDisabled()">A: {{boundary.A.toFixed(4)}}</p>
+        <p *ngIf="!boundaryDisabled()">B: {{boundary.B.toFixed(4)}}</p>
+        <p *ngIf="!boundaryDisabled()">C: {{boundary.C.toFixed(4)}}</p>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="navigation">
+      <p class="actions">
+        <button (click)="router.navigate(['/'])">Vissza a főoldalra</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+

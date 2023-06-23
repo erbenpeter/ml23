@@ -1,0 +1,7 @@
+#ml-plot {
+  width: 600px;
+  height: 600px;
+  padding: 5px;
+  background-color: var(--clr-paper);
+  border-radius: 0.5rem;
+}
