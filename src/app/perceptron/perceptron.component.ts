@@ -36,6 +36,7 @@ export class PerceptronComponent {
 
   faPlay = faPlay;
   faPause = faPause;
+  timeoutId: any = null;
 
   sample() {
     this.loss = undefined;
@@ -108,7 +109,7 @@ export class PerceptronComponent {
     if (['sampled', 'paused'].includes(this.simulationState)) return;
     this.simulationState = 'running';
     this.step();
-    setTimeout(() => this.run(), 1000); 
+    this.timeoutId = setTimeout(() => this.run(), 1000); 
   }
 
   runDisabled() {
@@ -117,6 +118,8 @@ export class PerceptronComponent {
 
   pause() {
     this.simulationState = 'paused';
+    clearTimeout(this.timeoutId);
+    this.timeoutId = null;
   }
 
   pauseDisabled() {
@@ -125,6 +128,12 @@ export class PerceptronComponent {
 
   boundaryDisabled() {
     return ['beforeSampling', 'sampled'].includes(this.simulationState);
+  }
+
+  back() {
+    clearTimeout(this.timeoutId);
+    this.timeoutId = null;
+    this.router.navigate(['/'])
   }
 
 }

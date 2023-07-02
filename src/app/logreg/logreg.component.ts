@@ -33,6 +33,7 @@ export class LogregComponent {
 
   faPlay = faPlay;
   faPause = faPause;
+  timeoutId: any = null;
 
   sample() {
     this.loss = undefined;
@@ -82,7 +83,7 @@ export class LogregComponent {
     if (['sampled', 'paused'].includes(this.simulationState)) return;
     this.simulationState = 'running';
     this.step();
-    setTimeout(() => this.run(), 10); 
+    this.timeoutId = setTimeout(() => this.run(), 10); 
   }
 
   runDisabled() {
@@ -91,6 +92,8 @@ export class LogregComponent {
 
   pause() {
     this.simulationState = 'paused';
+    clearTimeout(this.timeoutId);
+    this.timeoutId = null;
   }
 
   pauseDisabled() {
@@ -99,6 +102,12 @@ export class LogregComponent {
 
   boundaryDisabled() {
     return ['beforeSampling', 'sampled'].includes(this.simulationState);
+  }
+
+  back() {
+    clearTimeout(this.timeoutId);
+    this.timeoutId = null;
+    this.router.navigate(['/']);
   }
 
 }
